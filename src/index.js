@@ -4,14 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const txt = 'Hello World'
+const  btn = 'btn'
+const elem = (
+    <div>
+        <h2>{txt}</h2>
+        <input type="text" name="" id=""/>
+        <button className={btn} tabIndex={0}>submit</button>
+    </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+// const elem = React.createElement('h2', {className: 'newClass'}, 'Hello world!');
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  elem,
+);
+
+// reportWebVitals();
