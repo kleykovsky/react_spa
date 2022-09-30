@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 const txt = 'Hello World!'
 const  btn = 'btn'
-const elem2 = [];
 const elem = (
     <div>
         <h2>{txt}</h2>
