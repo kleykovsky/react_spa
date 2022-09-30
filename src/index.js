@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const txt = 'Hello World'
+const txt = 'Hello World!'
 const  btn = 'btn'
+const elem2 = [];
 const elem = (
     <div>
         <h2>{txt}</h2>
@@ -23,4 +24,4 @@ root.render(
   elem,
 );
 
-// reportWebVitals();
+reportWebVitals();
