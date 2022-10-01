@@ -17,7 +17,7 @@ const elem = (
     </div>
 );
 
-``
+
 // const elem = React.createElement(
 //     'h2', {className: 'newClass'}, 'Hello world!',
 // );
@@ -25,7 +25,7 @@ const elem = (
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     App(),
- //    TestApp(),
+    // TestApp(),
  //    elem,
 );
 // reportWebVitals();
