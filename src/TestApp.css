@@ -1,0 +1,108 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 530px;
+    margin: 50px auto;
+    background: rgba(14, 30, 49, 0.88);
+
+    border: solid 4px #0a141e;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px black;
+}
+.title-h1 {
+    font-style: revert;
+}
+.title-h1:before {
+    content: '';
+    display: block;
+    position: relative;
+    bottom: 14px;
+    width: 40px;
+    height: 5px;
+    border: solid 1px #0a141e;
+    border-radius: 3px;
+    box-shadow: 0 0 3px ;
+    background: #8d8d8d;
+    margin: 0 auto;
+}
+.title-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 430px;
+    border: solid 2px #0a141e;
+    border-radius: 7px;
+    background: #eeeeee;
+}
+.title-link {
+    color: #cadcf5;
+}
+.title-logo {
+    display: block;
+    width: 150px;
+    height: 150px;
+}
+.title-text {
+    display: block;
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.title-link {
+    display: block;
+    text-decoration: none;
+}
+.title-link:after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 5px auto 5px auto;
+    border: solid 2px;
+    border-radius: 100%;
+    box-shadow: 0 0 7px black;
+}
+.title-link:hover {
+    transform: scale(0.98);
+}
+
+.title-link:before {
+    position: relative;
+    top: 53px;
+    left: 54px;
+    margin: 0;
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border: solid 1px;
+    border-radius: 3px;
+}
+@media (prefers-reduced-motion: no-preference ) {
+    .title-logo {
+        animation: logo-spin infinite 6s normal;
+    }
+}
+@keyframes logo-spin {
+
+    0% {
+        filter: sepia(0%);
+    }
+    25% {
+        filter: sepia(50%);
+    }
+    50% {
+        filter: sepia(100%);
+    }
+    75% {
+        filter: sepia(50%);
+    }
+    100% {
+        filter: sepia(0%);
+    }
+}
