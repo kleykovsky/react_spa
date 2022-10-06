@@ -1,52 +1,77 @@
-import logo from './logo.svg';
 import {Component} from "react";
 import './App.css';
+import * as events from "events";
 
-const Header = () => {
-  return <h2>Hello Alex!!!</h2>
-}
 
-const Field = () => {
-    const holder = 'Enter here';
-        let styledField = {
-            width: '200px',
-            border: 'solid 2px red',
-        }
-    return <input placeholder={holder}
-                  type={'text'}
-                  style={styledField}/>
-}
-
-// class Field extends Component {
-//     render() {
-//         const holder = 'Enter here';
-//         let styledField = {
-//             width: '200px',
-//             border: 'solid 2px red',
-//         }
-//         return <input
-//                 placeholder={holder}
-//                 type={'text'}
-//                 style={styledField}/>
-//     }
+// func build
+// function WhoAmI ({name, surname, link}) {
+//
+//     return(
+//         <div>
+//             <h1>My name is - {name()} surname - {surname.sur} </h1>
+//             <a href={link}>My profile</a>
+//         </div>
+//     )
 // }
 
-function Btn() {
-    const txt = 'log in';
-    let logged = true;
 
-    return <button>{logged ? 'Enter' : txt}</button>
+// class build
+class WhoAmI extends Component {
+    constructor(props) {
+        super(props);
+        this.state =  {
+             txtBtn: 'Click me',
+             years: 10,
+             sex: '',
+            position: '',
+        }
+        // this.nextYear = this.nextYear.bind(this)
+    }
+
+    nextYear = () => {
+        // console.log('Good!')
+        // console.log(this)
+        this.setState(state => ({
+            years: state.years + 1,
+            sex: state.sex = 'Male',
+        }))
+    }
+
+    commitInputChanges = (e, color) => {
+        console.log(color)
+        this.setState({
+            position: e.target.value,
+        })
+    }
+
+
+    render() {
+        const {name, surname, link} = this.props
+        const {position, years} = this.state
+        console.log(this)
+        return (
+            <div>
+                <button onClick={this.nextYear}>{this.state.txtBtn}</button>
+                <h1>My name is {name} surname {surname}, age {years}, sex - {this.state.sex}, position - {position}</h1>
+                <a href={link}>My profile</a>
+                <form>
+                    <span>Введите должность</span>
+                    <input type="text" onChange={(e) => this.commitInputChanges(e, 'color')}/>
+                </form>
+            </div>
+        );
+    }
 }
 
 function App() {
-  return (
-    <div className="App">
-      <Header/>
-        <Field/>
-        <Btn/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <WhoAmI name={'Alex'} surname={'Kle'} link={'https://google.ru'} />
+            <WhoAmI name={'John'} surname={'Jet'} link={'https://google.ru'} />
+        </div>
+    );
 }
 
-export {Header};
+
+
 export default App;
