@@ -5,10 +5,12 @@ import App from './App';
 import {Button} from "./App";
 import {StrictMode} from "react";
 import styled from "styled-components";
-import BootstrapTest from "./BootstrapTest";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CheckButton from "./Check-Button";
 import * as PropTypes from "prop-types";
+import AppForm from "./AppForm";
+import AppPortals from "./AppPortals";
 
 // import reportWebVitals from './reportWebVitals';
 // import TestApp from "./TestApp";
@@ -33,6 +35,7 @@ const BigButton = styled(Button)`
   margin: 0 auto;
   width: 245px;
   text-align: center;
+  cursor: pointer;
   
 `;
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -50,8 +53,9 @@ root.render(
         <Wrapper>
             <App/>
             <BigButton as={'a'}>Click me</BigButton>
-            <BootstrapTest/>
             <CheckButton/>
+            <AppForm/>
+            <AppPortals/>
         </Wrapper>
 
     </StrictMode>

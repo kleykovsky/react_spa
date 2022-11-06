@@ -10,11 +10,12 @@ const WrapperImg = styled.img`
   border-radius: 5px;
 `;
 
-const BootstrapTest = () => {
+const BootstrapTest = (props) => {
     return (
         <Container className={'mt-5 mb-5'}>
             <Row>
                 <Col>
+                    {props.left}
                     <Form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
@@ -37,6 +38,7 @@ const BootstrapTest = () => {
                     </Form>
                 </Col>
                 <Col>
+                    {props.right}
                     <Carousel fade>
                         <Carousel.Item>
                             <WrapperImg

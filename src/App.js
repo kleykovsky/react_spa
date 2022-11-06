@@ -1,7 +1,9 @@
-import {Component} from "react";
+import React, {Component} from "react";
 import './App.css';
 // import * as events from "events";
 import styled, {keyframes} from "styled-components";
+import BootstrapTest from "./BootstrapTest";
+import Wrapper2 from "./Wrapper2";
 
 const EmpItem = styled.div`
   padding: 20px;
@@ -109,14 +111,114 @@ class WhoAmI extends Component {
 }
 
 
+
+
 const Wrapper = styled.div`
   max-width: 600px;
   margin: 80px auto 0 auto;
 `;
 
+const DynamicGreating = (props) => {
+    return(
+        <div className={'mb-3 p-3 border-' + props.color}>
+            {
+                React.Children.map(props.children, child => {
+                    return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'})
+                })
+            }
+        </div>
+    )
+}
+
+const Form = (props) => {
+    return(
+        <div className={'mb-5 p-3 border-' + props.color} style={{color:'red'}}>
+            {
+                React.Children.map(props.children, child => {
+                    return React.cloneElement(child, {className: 'shadow p-3 m-3 border rounded'}, )
+                })
+            }
+        </div>
+    )
+}
+
+const HelloGreating = () => {
+    return(
+        <div style={{width: '600px', margin: '0 auto', textAlign: 'center'}}>
+            <Form>
+                <h2>Hello world!</h2>
+            </Form>
+        </div>
+    )
+}
+
+const Message = (props) => {
+    return(
+        <h2> The counter is {props.counter}</h2>
+    )
+}
+
+class Counter extends Component {
+    state = {
+        counter: 0
+    }
+
+    changeCounter = () => {
+        this.setState(({counter}) => ({
+            counter: ++counter
+        }))
+    }
+
+    render() {
+        return(
+            <>
+                <button
+                    className={'btn btn-primary'}
+                    onClick={this.changeCounter}>
+                    Click me
+                </button>
+                {this.props.render(this.state.counter)}
+                {this.props.render(this.state.counter)}
+
+            </>
+        )
+    }
+}
+
+
 function App() {
     return (
         <Wrapper>
+            <Counter render={counter => (
+                <Message counter={counter}/>
+            )}/>
+
+            <HelloGreating/>
+            <BootstrapTest left={
+                <DynamicGreating color={'primary'}>
+                    <h2>Hello</h2>
+                </DynamicGreating>
+            }
+            right={
+                <DynamicGreating>
+                    <h2>World!</h2>
+                </DynamicGreating>
+            }
+            />
+
+            <Wrapper2 left={
+                <Form color={'primary'}>
+                    <h1>Text</h1>
+                    <text>111</text>
+                </Form>
+            }
+            right={
+                <Form>
+                    <h1>Text</h1>
+                    <text>222</text>
+                </Form>
+            }
+            />
             <WhoAmI name={'Alex'} surname={'Kle'} link={'https://google.ru'} />
             <WhoAmI name={'John'} surname={'Jet'} link={'https://google.ru'} />
         </Wrapper>
